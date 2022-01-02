@@ -1,14 +1,13 @@
 //
-//  CountryAppTests.swift
+//  CountryRESTEndpointTests.swift
 //  CountryAppTests
 //
-//  Created by Giovanni Romaniello on 30/12/21.
+//  Created by Giovanni Romaniello on 01/01/22.
 //
 
 import XCTest
-@testable import CountryApp
 
-class CountryAppTests: XCTestCase {
+class CountryRESTEndpointTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
