@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+protocol CountryRepository {
+    
+    func retrieveAllCountries() async throws -> [Country]
+    func retrieveCountryByContinent(continent: String) async throws -> [Country]
+    func retrieveCountryByLanguage(language: String) async throws -> [Country]
+}

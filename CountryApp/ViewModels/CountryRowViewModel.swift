@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+class CountryRowViewModel: ObservableObject {
+    
+    @Published var flag: String?
+    @Published var name: String?
+    
+    init(with country: Country) {
+        flag = country.flags?["png"]
+        name = country.name.common
+    }
+}

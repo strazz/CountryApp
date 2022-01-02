@@ -7,15 +7,37 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct CountryListView: View {
+    
+    @ObservedObject private var viewModel: CountryListViewModel
+    
+    init(with viewModel: CountryListViewModel) {
+        self.viewModel = viewModel
+    }
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List {
+                ForEach(viewModel.countries, id: \.id) { country in
+                    CountryViewFactory.buildCountryRowView(country: country)
+                }
+            }
+        }
+        .onAppear(perform: {
+            Task {
+                await viewModel.loadCountries()
+            }
+        })
+        .refreshable {
+            await viewModel.loadCountries()
+        }
+        .navigationTitle("CountryApp")
+        .navigationBarTitleDisplayMode(.automatic)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct CountryListView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        CountryViewFactory.buildCountryListView(repository: MockCountryRepository())
     }
 }

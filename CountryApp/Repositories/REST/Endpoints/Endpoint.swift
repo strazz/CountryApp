@@ -46,6 +46,14 @@ extension Endpoint {
         "application/json"
     }
     
+    var parameters: Parameters? {
+        nil
+    }
+    
+    var headers: HTTPHeaders? {
+        nil
+    }
+    
     func asURLRequest() throws -> URLRequest {
         guard let baseURL = URL(string: self.baseUrl) else {
             throw APIError.invalidUrl(statusCode: 0, url: self.baseUrl)

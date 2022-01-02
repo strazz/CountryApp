@@ -17,17 +17,17 @@ class CountryRepositoryTests: XCTestCase {
     }
 
     func testRetrieveAllCountries() async {
-        let result = await repository.retrieveAllCountries()
+        let result = try! await repository.retrieveAllCountries()
         XCTAssertEqual(result.count, 250)
     }
 
     func testRetrieveCountriesByContinent() async {
-        let result = await repository.retrieveCountryByContinent(continent: "europe")
+        let result = try! await repository.retrieveCountryByContinent(continent: "europe")
         XCTAssertEqual(result.count, 53)
     }
     
     func testRetrieveCountriesByLanguage() async {
-        let result = await repository.retrieveCountryByLanguage(language: "ita")
+        let result = try! await repository.retrieveCountryByLanguage(language: "ita")
         XCTAssertEqual(result.count, 4)
     }
 }

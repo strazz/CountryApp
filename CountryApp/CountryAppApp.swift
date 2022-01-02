@@ -11,7 +11,7 @@ import SwiftUI
 struct CountryAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CountryViewFactory.buildCountryListView(repository: CountryRESTRepository())
         }
     }
 }
