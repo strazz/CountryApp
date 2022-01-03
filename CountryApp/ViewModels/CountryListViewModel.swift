@@ -20,7 +20,10 @@ class CountryListViewModel: ObservableObject {
     
     func loadCountries() async {
         do {
-            countries = try await self.repository.retrieveAllCountries()
+            error = nil
+            countries = try await self.repository.retrieveAllCountries().sorted(by: { lhs, rhs in
+                lhs.name.common < rhs.name.common
+            })
         } catch {
             //prints the "real" error
             print(error.localizedDescription)

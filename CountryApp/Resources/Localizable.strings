@@ -6,3 +6,5 @@
   
 */
 "error.generic" = "Ops! Si e' verificato un errore, riprova...";
+"label.languages" = "Lingue: ";
+"label.region" = "Continente: ";

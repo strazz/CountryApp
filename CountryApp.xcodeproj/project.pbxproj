@@ -45,6 +45,9 @@
 		1F8A7DB72783083400BD3421 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8A7DB52783083400BD3421 /* StringExtensions.swift */; };
 		1F8A7DB92783088F00BD3421 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8A7DB82783088F00BD3421 /* UserError.swift */; };
 		1F8A7DBA2783088F00BD3421 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8A7DB82783088F00BD3421 /* UserError.swift */; };
+		1F8A7DBC27830FFD00BD3421 /* CountryListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8A7DBB27830FFD00BD3421 /* CountryListViewModelTests.swift */; };
+		1F8A7DBD278313E200BD3421 /* CountryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E16E3277DFF37007826AD /* CountryListView.swift */; };
+		1F8A7DBF2783185A00BD3421 /* CountryRowViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8A7DBE2783185A00BD3421 /* CountryRowViewModelTests.swift */; };
 		1FD7FB342781F22C00AD5BCA /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD7FB332781F22C00AD5BCA /* CountryListViewModel.swift */; };
 		1FD7FB352781F22C00AD5BCA /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD7FB332781F22C00AD5BCA /* CountryListViewModel.swift */; };
 		1FD7FB382782027700AD5BCA /* CountryViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD7FB372782027700AD5BCA /* CountryViewFactory.swift */; };
@@ -106,6 +109,8 @@
 		1F8A7DB22783081300BD3421 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		1F8A7DB52783083400BD3421 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		1F8A7DB82783088F00BD3421 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		1F8A7DBB27830FFD00BD3421 /* CountryListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModelTests.swift; sourceTree = "<group>"; };
+		1F8A7DBE2783185A00BD3421 /* CountryRowViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRowViewModelTests.swift; sourceTree = "<group>"; };
 		1FD7FB332781F22C00AD5BCA /* CountryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
 		1FD7FB372782027700AD5BCA /* CountryViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryViewFactory.swift; sourceTree = "<group>"; };
 		1FD7FB3B278203A900AD5BCA /* CountryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRowView.swift; sourceTree = "<group>"; };
@@ -190,6 +195,8 @@
 			children = (
 				1F1E1715277E03CF007826AD /* MockData */,
 				1F1E16F2277DFF39007826AD /* CountryRepositoryTests.swift */,
+				1F8A7DBB27830FFD00BD3421 /* CountryListViewModelTests.swift */,
+				1F8A7DBE2783185A00BD3421 /* CountryRowViewModelTests.swift */,
 				1F1E1713277E0355007826AD /* MockCountryRepository.swift */,
 				1F1E17382780FC3C007826AD /* CountryRESTEndpointTests.swift */,
 			);
@@ -491,10 +498,13 @@
 				1F8A7DB72783083400BD3421 /* StringExtensions.swift in Sources */,
 				1FD7FB3D278203A900AD5BCA /* CountryRowView.swift in Sources */,
 				1F8A7DBA2783088F00BD3421 /* UserError.swift in Sources */,
+				1F8A7DBF2783185A00BD3421 /* CountryRowViewModelTests.swift in Sources */,
 				1F1E17242780DE7A007826AD /* ParameterEncoding.swift in Sources */,
+				1F8A7DBC27830FFD00BD3421 /* CountryListViewModelTests.swift in Sources */,
 				1F1E172B2780EA75007826AD /* CountryRESTRepository.swift in Sources */,
 				1F1E17322780EE6D007826AD /* CountryRepository.swift in Sources */,
 				1FD7FB392782027700AD5BCA /* CountryViewFactory.swift in Sources */,
+				1F8A7DBD278313E200BD3421 /* CountryListView.swift in Sources */,
 				1F1E171C2780DC00007826AD /* Endpoint.swift in Sources */,
 				1F1E17392780FC3C007826AD /* CountryRESTEndpointTests.swift in Sources */,
 				1FD7FB352781F22C00AD5BCA /* CountryListViewModel.swift in Sources */,

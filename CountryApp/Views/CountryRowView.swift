@@ -15,12 +15,24 @@ struct CountryRowView: View {
     }
     
     var body: some View {
-        HStack {
+        HStack(alignment: .center, spacing: 8, content: {
             NetworkImageView(url: URL(string: viewModel.flag ?? ""))
-            .frame(width: 50, height: 50, alignment: .center)
-            .background(Color.clear)
-            Text(viewModel.name ?? "")
-        }
+                .frame(width: 50, height: 50, alignment: .center)
+                .background(Color.clear)
+            VStack(alignment: .leading,
+                   spacing: 8,
+                   content: {
+                if let name = viewModel.name {
+                    Text(name)
+                }
+                if let region = viewModel.region {
+                    Text(region)
+                }
+                if let languages = viewModel.languages {
+                    Text(languages)
+                }
+            })
+        })
         .padding(8)
     }
 }
@@ -33,9 +45,9 @@ struct CountryRowView_Previews: PreviewProvider {
             status: nil,
             capital: nil,
             currencies: nil,
-            region: nil,
+            region: "europe",
             subregion: nil,
-            languages: nil,
+            languages: ["ita": "Italian"],
             area: nil,
             population: nil,
             latlng: nil,
