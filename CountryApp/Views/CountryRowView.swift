@@ -16,16 +16,7 @@ struct CountryRowView: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: viewModel.flag ?? "")) {
-                phase in
-                if let image = phase.image {
-                    image
-                        .resizable()
-                        .scaledToFit()
-                } else {
-                    ProgressView()
-                }
-            }
+            NetworkImageView(url: URL(string: viewModel.flag ?? ""))
             .frame(width: 50, height: 50, alignment: .center)
             .background(Color.clear)
             Text(viewModel.name ?? "")

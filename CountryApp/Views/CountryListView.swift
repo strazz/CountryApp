@@ -17,10 +17,16 @@ struct CountryListView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.countries, id: \.id) { country in
-                    CountryViewFactory.buildCountryRowView(country: country)
-                }
+            List(viewModel.countries) { country in
+                CountryViewFactory.buildCountryRowView(country: country)
+            }
+            .navigationBarTitle("CountryApp", displayMode: .inline)
+            .navigationBarTitleDisplayMode(.automatic)
+            .navigationBarHidden(false)
+        }
+        .overlay(alignment: .center) {
+            if let error = viewModel.error {
+                ErrorView(with: error)
             }
         }
         .onAppear(perform: {
@@ -31,8 +37,6 @@ struct CountryListView: View {
         .refreshable {
             await viewModel.loadCountries()
         }
-        .navigationTitle("CountryApp")
-        .navigationBarTitleDisplayMode(.automatic)
     }
 }
 

@@ -19,4 +19,9 @@ struct APIClient {
         let value = try JSONDecoder().decode(T.self, from: data)
         return Response(value: value, response: response)
     }
+    
+    func run(_ request: URLRequest) async throws -> Response<Data> {
+        let (data, response) = try await URLSession.shared.data(for: request)
+        return Response(value: data, response: response)
+    }
 }

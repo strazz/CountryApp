@@ -12,6 +12,7 @@ class CountryListViewModel: ObservableObject {
     private let repository: CountryRepository
     
     @Published var countries: [Country] = []
+    @Published var error: Error?
     
     init(with repository: CountryRepository) {
         self.repository = repository
@@ -21,9 +22,11 @@ class CountryListViewModel: ObservableObject {
         do {
             countries = try await self.repository.retrieveAllCountries()
         } catch {
-            print(error)
+            //prints the "real" error
             print(error.localizedDescription)
-            //TODO error handling
+            countries = []
+            let userError = UserError.error(message: "error.generic".localized)
+            self.error = userError
         }
     }
 }

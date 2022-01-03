@@ -11,6 +11,7 @@ class CountryRowViewModel: ObservableObject {
     
     @Published var flag: String?
     @Published var name: String?
+    @Published var imageData: Data?
     
     init(with country: Country) {
         flag = country.flags?["png"]
