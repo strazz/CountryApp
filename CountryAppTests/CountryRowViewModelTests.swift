@@ -45,10 +45,10 @@ class CountryRowViewModelTests: XCTestCase {
     }
     
     func testLanguages() {
-        XCTAssertEqual("\("label.languages".localized) Italian", viewModel.languages)
+        XCTAssertEqual("Italian", viewModel.languages)
     }
     
     func testRegion() {
-        XCTAssertEqual("\("label.region".localized) europe", viewModel.region)
+        XCTAssertEqual("europe", viewModel.region)
     }
 }

@@ -14,8 +14,9 @@ class CountryViewFactory {
         return CountryListView(with: viewModel)
     }
     
-    static func buildCountryRowView(country: Country) -> CountryRowView {
+    static func buildCountryRowView(country: Country, searchText: String?) -> CountryRowView {
         let viewModel = CountryRowViewModel(with: country)
+        viewModel.searchText = searchText
         return CountryRowView(with: viewModel)
     }
 }

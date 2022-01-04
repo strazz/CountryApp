@@ -5,6 +5,12 @@
   Created by Giovanni Romaniello on 03/01/22.
   
 */
-"error.generic" = "Ops! Si e' verificato un errore, riprova...";
-"label.languages" = "Lingue: ";
-"label.region" = "Continente: ";
+"error.generic" = "Oops! An error occurred, please try again...";
+"label.languages" = "Languages:";
+"label.region" = "Region:";
+"search.placeholder" = "Search by region/language";
+"label.group" = "Group by region";
+"button.sort" = "Sort order";
+"label.sort" = "Available sort orders";
+"label.sort.name" = "by Country name";
+"label.sort.region" = "by Region";

@@ -23,13 +23,19 @@ struct CountryRowView: View {
                    spacing: 8,
                    content: {
                 if let name = viewModel.name {
-                    Text(name)
+                    Text(name).bold()
                 }
                 if let region = viewModel.region {
-                    Text(region)
+                    HStack(alignment: .top, spacing: 8) {
+                        Text("label.region".localized).bold()
+                        HighlightedText(region, matching: viewModel.searchText ?? "")
+                    }
                 }
                 if let languages = viewModel.languages {
-                    Text(languages)
+                    HStack(alignment: .top, spacing: 8) {
+                        Text("label.languages".localized).bold()
+                        HighlightedText(languages, matching: viewModel.searchText ?? "")
+                    }
                 }
             })
         })

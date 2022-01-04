@@ -17,8 +17,64 @@ struct CountryListView: View {
     
     var body: some View {
         NavigationView {
-            List(viewModel.countries) { country in
-                CountryViewFactory.buildCountryRowView(country: country)
+            VStack {
+                HStack(alignment: .top, spacing: 8) {
+                    TextField("search.placeholder".localized, text: $viewModel.searchText)
+                        .padding(8)
+                        .background(Color.lightGray)
+                        .clipped()
+                        .cornerRadius(8)
+                }
+                .padding(SwiftUI.Edge.Set.horizontal, 8)
+                VStack(alignment: .leading) {
+                    Toggle("label.group".localized, isOn: $viewModel.isGrouped)
+                    Button("button.sort".localized) {
+                        viewModel.showOptions = true
+                    }
+                    .clipShape(Capsule())  
+                }
+                .actionSheet(isPresented: $viewModel.showOptions) {
+                            ActionSheet(
+                                title: Text("button.sort".localized),
+                                buttons: [
+                                    .cancel { },
+                                    .default(Text("label.sort.name".localized)) {
+                                        viewModel.sortOrder = .byName
+                                    },
+                                    .default(Text("label.sort.region".localized)) {
+                                        viewModel.sortOrder = .byRegion
+                                    }
+                                ]
+                            )
+                        }
+                .padding(8)
+                if viewModel.countries.isEmpty, viewModel.error == nil {
+                    ProgressView()
+                    Spacer()
+                } else {
+                    if viewModel.isGrouped {
+                        List {
+                            ForEach(Array(viewModel.regions.keys).sorted(by: <), id: \.self) {
+                                key in
+                                Section(key) {
+                                    let countries = viewModel.regions[key]
+                                    ForEach(countries ?? []) {
+                                        country in
+                                        CountryViewFactory.buildCountryRowView(country: country, searchText: viewModel.searchText)
+                                    }
+                                }
+                            }
+                            
+                        }
+                    } else {
+                        List(viewModel.countries) { country in
+                            
+                            CountryViewFactory.buildCountryRowView(country: country, searchText: viewModel.searchText)
+                        }
+                    }
+                    
+                    
+                }
             }
             .navigationBarTitle("CountryApp", displayMode: .inline)
             .navigationBarTitleDisplayMode(.automatic)
