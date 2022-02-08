@@ -33,20 +33,6 @@ struct CountryListView: View {
                     }
                     .clipShape(Capsule())  
                 }
-                .actionSheet(isPresented: $viewModel.showOptions) {
-                            ActionSheet(
-                                title: Text("button.sort".localized),
-                                buttons: [
-                                    .cancel { },
-                                    .default(Text("label.sort.name".localized)) {
-                                        viewModel.sortOrder = .byName
-                                    },
-                                    .default(Text("label.sort.region".localized)) {
-                                        viewModel.sortOrder = .byRegion
-                                    }
-                                ]
-                            )
-                        }
                 .padding(8)
                 if viewModel.countries.isEmpty, viewModel.error == nil {
                     ProgressView()
@@ -79,6 +65,20 @@ struct CountryListView: View {
             .navigationBarTitle("CountryApp", displayMode: .inline)
             .navigationBarTitleDisplayMode(.automatic)
             .navigationBarHidden(false)
+            .actionSheet(isPresented: $viewModel.showOptions) {
+                        ActionSheet(
+                            title: Text("button.sort".localized),
+                            buttons: [
+                                .cancel { },
+                                .default(Text("label.sort.name".localized)) {
+                                    viewModel.sortOrder = .byName
+                                },
+                                .default(Text("label.sort.region".localized)) {
+                                    viewModel.sortOrder = .byRegion
+                                }
+                            ]
+                        )
+                    }
         }
         .overlay(alignment: .center) {
             if let error = viewModel.error {

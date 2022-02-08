@@ -14,3 +14,8 @@
 "label.sort" = "Available sort orders";
 "label.sort.name" = "by Country name";
 "label.sort.region" = "by Region";
+"label.capital" = "Capital:";
+"label.coat" = "Coat of arms:";
+"button.show" = "Show";
+"button.hide" = "Hide";
+"label.map" = "Map";

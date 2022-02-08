@@ -6,17 +6,25 @@
 //
 
 import Foundation
+import SwiftUI
 
 class CountryViewFactory {
     
-    static func buildCountryListView(repository: CountryRepository) -> CountryListView {
+    static func buildCountryListView(repository: CountryRepository) -> some View {
         let viewModel = CountryListViewModel(with: repository)
         return CountryListView(with: viewModel)
     }
     
-    static func buildCountryRowView(country: Country, searchText: String?) -> CountryRowView {
+    static func buildCountryRowView(country: Country, searchText: String?) -> some View {
         let viewModel = CountryRowViewModel(with: country)
         viewModel.searchText = searchText
-        return CountryRowView(with: viewModel)
+        return NavigationLink(destination: buildCountryDetailView(country: country)) {
+            CountryRowView(with: viewModel)
+        }
+    }
+    
+    static func buildCountryDetailView(country: Country) -> some View {
+        let viewModel = CountryDetailViewModel(with: country)
+        return CountryDetailView(with: viewModel)
     }
 }
